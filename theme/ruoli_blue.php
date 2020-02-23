@@ -14,7 +14,7 @@
         a{color:#1E90FF;cursor:pointer;text-decoration:none}
         a:hover{color:#1E90FF}
         .login ion-icon{vertical-align:bottom}
-
+        .changelanguage{position:absolute;right:5px;}
         .title{text-align:center;margin-top:1rem;letter-spacing:2px;margin-bottom:2rem}
         .title a{color:#1E90FF;text-decoration:none}
         .list-wrapper{width:80%;margin:0 auto 30px;position:relative;box-shadow:0 0 12px 0 rgb(100,149,237);border-radius:5px;}
@@ -80,7 +80,6 @@
 <?php
     } ?>
         &nbsp;
-        <select class="changelanguage button" name="language" onchange="changelanguage(this.options[this.options.selectedIndex].value)">
             <option value="">Language</option>
 <?php
     foreach ($constStr['languages'] as $key1 => $value1) { ?>
@@ -527,7 +526,7 @@
 	</div>
 <?php   }
     } ?>
-    <div style="text-align:center;"></div>
+    <div style="text-align:center;">OneManager by 逸笙 theme by 若离</div>
 </body>
 <?php if ($files) { ?>
 <?php if ($head||$readme) { ?><link rel="stylesheet" href="//unpkg.zhimg.com/github-markdown-css@3.0.1/github-markdown.css">
