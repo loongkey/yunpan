@@ -9,7 +9,210 @@
     <meta name="keywords" content="<?php echo $n_path;?>,<?php if ($p_path!='') echo $p_path.','; echo $_SERVER['sitename'];?>,OneManager,auth_by_逸笙">
     <link rel="icon" href="<?php echo $_SERVER['base_disk_path'];?>favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="<?php echo $_SERVER['base_disk_path'];?>favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="https://files.catbox.moe/02e67o.css" type="text/css">
+    <style type="text/css">
+    body{
+        font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+        font-size:14px;
+        line-height:1em;
+        color:#000;  
+        background-color:#000000;
+        background-image:url("<?php echo getConfig('background')?getConfig('background'):($_SERVER['base_disk_path'].'background.jpg'); ?>");
+        width:100％;
+        height:100％;
+        min－width:1000px;
+        background-size:cover;
+        -webkit-background-size:cover;
+        -o-background-size:cover;
+        background－position:center0;
+    }
+a {
+	color:#FFFFFF;
+	cursor:pointer;
+	text-decoration:none;
+}
+a:hover {
+	color:#aaaeb3;
+}
+.login ion-icon {
+	vertical-align:bottom;
+}
+.changelanguage {
+	position:absolute;
+	right:5px;
+}
+.title {
+	text-align:center;
+	margin-top:1rem;
+	letter-spacing:2px;
+	margin-bottom:2rem
+}
+.title a {
+	color:#1E90FF;
+	text-decoration:none;
+}
+.list-wrapper {
+	width:80%;
+	margin:0 auto 30px;
+	position:relative;
+	box-shadow:0 0 32px 0 rgb(128,128,128);
+	border-radius:15px;
+}
+.list-container {
+	position:relative;
+	overflow:hidden;
+	border-radius:15px;
+}
+.list-header-container {
+	position:relative
+}
+.list-header-container a.back-link {
+	color:#fdfdfd;
+	display:inline-block;
+	position:absolute;
+	font-size:16px;
+	margin:20px 10px;
+	padding:10px 10px;
+	vertical-align:middle;
+	text-decoration:none;
+}
+.list-container,.list-header-container,.list-wrapper,a.back-link:hover,body {
+	color:#FFFFFF
+}
+.list-header-container .table-header {
+	margin:0;
+	border:0 none;
+	padding:30px 60px;
+	text-align:left;
+	font-weight:400;
+	color:#FFFFFF;
+	background-color:rgba(85,85,85,0.3);
+	/**文件列表导航条背景颜色 */
+}
+.list-body-container {
+	position:relative;
+	left:0;
+	overflow-x:hidden;
+	overflow-y:auto;
+	box-sizing:border-box;
+	background:rgba(85,85,85,0.3);
+	/**文件列表背景颜色 */
+}
+.more-disk {
+	margin:0;
+	border:0 none;
+	padding:30px 30px;
+	text-align:left;
+	font-weight:400;
+	color:#000;
+	background-color:rgba(85,85,85,0.3);
+	word-break: break-all;
+	word-wrap: break-word;
+}
+.more-disk a {
+	padding:5px
+}
+.list-table {
+	width:100%;
+	padding:0 20px 20px 20px;
+	border-spacing:0
+}
+.list-table tr {
+	height:40px
+}
+.list-table tr[data-to]:hover {
+	background:rgba(85,85,85,0.3);
+}
+.list-table tr:first-child {
+	background:rgba(85,85,85,0);
+}
+.list-table td,.list-table th {
+	padding:0 10px;
+	text-align:left;
+}
+.list-table .size,.list-table .updated_at {
+	text-align:right;
+}
+.list-table .file ion-icon {
+	font-size:15px;
+	/*margin-right:5px;*/
+	vertical-align:bottom;
+}
+.mask {
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:100%;
+	background-color:#000;
+	filter:alpha(opacity=50);
+	opacity:0.5;
+	z-index:2;
+}
+<?php if ($_SERVER['admin']) {
+	?>
+	        .operate {
+		display:inline-table;
+		margin:0;
+		list-style:none;
+	}
+	.operate ion-icon {
+		vertical-align:bottom;
+	}
+	.operate ul {
+		position:absolute;
+		display:none;
+		background:rgba(85,85,85,0.8);
+		border:0px #f7f7f7 solid;
+		border-radius:5px;
+		margin:-7px 0 0 0;
+		padding:0 7px;
+		color:#205D67;
+		z-index:1;
+	}
+	.operate:hover ul {
+		position:absolute;
+		display:inline-table;
+	}
+	.operate ul li {
+		padding:7px;
+		list-style:none;
+		display:inline-table;
+	}
+	.operate ul li ion-icon {
+		vertical-align:bottom;
+	}
+	<?php
+}
+?>
+         .operatediv {
+	position:absolute;
+	border:1px rgba(85,85,85,0.3);
+	background-color:rgba(85,85,85,0.3);
+	z-index:2;
+}
+.operatediv div {
+	margin:16px
+}
+.operatediv_close {
+	position:absolute;
+	right:3px;
+	top:3px;
+}
+.readme {
+	padding:8px;
+	background-color:rgba(85,85,85,0.3);
+	/**设置readme和head背景色 */
+}
+.markdown-body {
+	padding:20px;
+	text-align:left;
+}
+        @media only screen and (max-width:480px){
+            .title{margin-bottom:24px}
+            .list-wrapper{width:95%; margin-bottom:24px;}
+            .list-table {padding:8px}
+            .list-table td, .list-table th{padding:0 10px;text-align:left;white-space:nowrap;overflow:auto;max-width:80px}
+        }
+    </style>
 </head>
 
 <body>
@@ -46,11 +249,39 @@
     <div style='position:absolute;'><font color='red'><?php echo getconstStr('NeedUpdate'); ?></font></div>
 <?php } ?>
     <h1 class="title">
-        <a href="<?php echo $_SERVER['base_path']; ?>"><?php echo $_SERVER['sitename']; ?></a>
-    </h1>
+        <a href="<?php echo $_SERVER['base_path']; ?>"><?php echo $_SERVER['sitename']; ?></a></h1>
+<center>
+<body>
+    <span id="date1"></span>
+        <script >
+    function $(num1) {
+	return num1<10?"0"+num1:num1;
+    }
+    function setTime() {
+	var date = new Date();
+	var year = date.getFullYear();
+	var month = date.getMonth()+1;
+	var day = date.getDate();
+	var week = date.getDay();
+	console.log();
+	var hour = date.getHours();
+	var minute = date.getMinutes();
+	var second = date.getSeconds();
+	var time = year+"年"+$(month)+'月'+$(day)+"日"+$(hour)+":"+$(minute)+":"+$(second);
+	document.getElementById("date1").innerHTML=time;
+    }
+setTime();
+setInterval('setTime()',500);
+</script>
+</body>
+<?php
+$ip = ($_SERVER["HTTP_VIA"]) ? $_SERVER["HTTP_X_FORWARDED_FOR"] : $_SERVER["REMOTE_ADDR"];
+$ip = ($ip) ? $ip : $_SERVER["REMOTE_ADDR"];
+echo '当前IP地址: ' ,$ip, "\n";
+?>
 <?php $disktags = explode("|",getConfig('disktag'));
     if (count($disktags)>1) { ?>
-    <div class="list-wrapper onemoe-more-disk">
+    <div class="list-wrapper">
         <div class="list-container">
             <div class="list-header-container">
                 <div class="more-disk">
@@ -163,8 +394,8 @@
                 <table class="list-table" id="list-table">
                     <tr id="tr0">
                         <th class="file" onclick="sortby('a');"><?php echo getconstStr('File'); if ($_SERVER['USER']!='qcloud') { ?>&nbsp;&nbsp;&nbsp;<button onclick="showthumbnails(this);"><?php echo getconstStr('ShowThumbnails'); ?></button><?php } ?></th>
-                        <th class="updated_at" onclick="sortby('time');"><?php echo getconstStr('EditTime'); ?></th>
-                        <th class="size" onclick="sortby('size');"><?php echo getconstStr('Size'); ?></th>
+                        <th class="updated_at" width="25%" onclick="sortby('time');"><?php echo getconstStr('EditTime'); ?></th>
+                        <th class="size" width="15%" onclick="sortby('size');"><?php echo getconstStr('Size'); ?></th>
                     </tr>
                     <!-- Dirs -->
 <?php               //echo json_encode($files['children'], JSON_PRETTY_PRINT);
@@ -330,7 +561,7 @@
     <div class="list-wrapper">
         <div class="list-container">
             <div class="list-header-container">
-                <div class="readme onemoe-readme">
+                <div class="readme">
                     <!--<svg class="octicon octicon-book" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M3 5h4v1H3V5zm0 3h4V7H3v1zm0 2h4V9H3v1zm11-5h-4v1h4V5zm0 2h-4v1h4V7zm0 2h-4v1h4V9zm2-6v9c0 .55-.45 1-1 1H9.5l-1 1-1-1H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h5.5l1 1 1-1H15c.55 0 1 .45 1 1zm-8 .5L7.5 3H2v9h6V3.5zm7-.5H9.5l-.5.5V12h6V3z"></path></svg>
                     <span style="line-height: 16px;vertical-align: top;">'.$readme['name'].'</span>-->
                     <div class="markdown-body" id="readme">
@@ -479,7 +710,6 @@
 	</div>
 <?php   }
     } ?>
-    <div style="color: rgba(247,247,249,0);"><?php echo date("Y-m-d H:i:s")." ".getconstStr('Week')[date("w")]." ".$_SERVER['REMOTE_ADDR'];?></div>
 </body>
 <?php if ($files) { ?>
 <?php if ($head||$readme) { ?><link rel="stylesheet" href="//unpkg.zhimg.com/github-markdown-css@3.0.1/github-markdown.css">
