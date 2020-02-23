@@ -80,13 +80,6 @@
 <?php
     } ?>
         &nbsp;
-            <option value="">Language</option>
-<?php
-    foreach ($constStr['languages'] as $key1 => $value1) { ?>
-            <option value="<?php echo $key1; ?>" <?php echo $key1==$constStr['language']?'selected="selected"':'' ?>><?php echo $value1; ?></option>
-<?php
-    } ?>
-        </select>
     </div>
 <?php
     if ($_SERVER['needUpdate']) { ?>
